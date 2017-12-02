@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">psykick</string>
     <string-array name="questions">
-        <item>What is the meaning of life?</item>
-        <item>What is my purpose?</item>
-        <item>Where are your car keys?</item>
+        <item>How many hours of sleep have you had?</item>
+        <item>On a level of 1-10, how is your energy?</item>
+        <item>Are you staying home or going out?</item>
+        <item>On a scale of 1-10, how is your appetite?</item>
     </string-array>
 </resources>
