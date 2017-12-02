@@ -25,11 +25,6 @@ public class RecipientAdapter extends ArrayAdapter<Recipient> {
         this.inflater = LayoutInflater.from(context);
     }
 
-    public void swapItems(List<Recipient> recipients) {
-        this.recipients = recipients;
-        notifyDataSetChanged();
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final CreateNotificationActivity.RecipientViewHolder holder;

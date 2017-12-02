@@ -4,6 +4,9 @@ package com.example.uwmlh.psykick;
  * Created by nngo1 on 02-Dec-17.
  */
 
+import android.content.Intent;
+import android.net.Uri;
+
 /**
  * Describes a recipient of an excusal and how to send an email to them
  */
@@ -40,7 +43,4 @@ public class Recipient {
         return courseName + " " + code + " " + profName + " " + email;
     }
 
-    public void sendEmail() {
-
-    }
 }

@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String user = "Nathaniel Ngo";
+    public static final long studentNo = 20457412;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
