@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">psykick</string>
+    <string-array name="questions">
+        <item>What is the meaning of life?</item>
+        <item>What is my purpose?</item>
+        <item>Where are your car keys?</item>
+    </string-array>
 </resources>

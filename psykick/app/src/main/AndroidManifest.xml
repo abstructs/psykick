@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateNotificationActivity" />
-        <activity android:name=".PreviewNotificationActivity"></activity>
+        <activity android:name=".PreviewNotificationActivity" />
+        <activity android:name=".QuestionnaireActivity"></activity>
     </application>
 
 </manifest>

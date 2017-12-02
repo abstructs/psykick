@@ -16,10 +16,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button notifyButton = (Button) findViewById(R.id.notify);
+        Button questionsButton = (Button) findViewById(R.id.questionsButton);
         notifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CreateNotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+        questionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), QuestionnaireActivity.class);
                 startActivity(intent);
             }
         });
