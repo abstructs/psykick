@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Scriptable > Bubble | Chart.js sample</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <script src="{{ url_for('static', filename='js/Chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+	<script src="../utils.js"></script>
+</head>
+<body class="subpage">
+        
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="/" class="logo"><strong>PSYKICK</strong> </a>
+            <nav id="nav">
+                <a href="/">Home</a>
+                <a href="/data">Data</a>
+                <a href="/calender">Calender</a>
+                <!-- <a href="/loginstudent">Student Login</a>
+                <a href="/loginprof">Professional Login</a> -->
+                <!-- <a href="/contact">Contact</a> -->
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+	<div class="content">
+        <h2>Your moods for the month!</h2>
+        <p>Purple: Sad. Red: Angry. Cyan: Calm. Green: Happy</p>
+
+		<div class="wrapper"><canvas id="chart-0" height="225   px"></canvas></div>
+		<div class="toolbar">
+			<!-- <button onclick="randomize(this)">Randomize</button> -->
+			<button onclick="addDataset(this)">Add Dataset</button>
+			<button onclick="removeDataset(this)">Remove Dataset</button>
+		</div>
+	</div>
+
+	<script>
+		var DATA_COUNT = 16;
+		var MIN_XY = -150;
+		var MAX_XY = 100;
+
+		var presets = window.chartColors;
+		var utils = Samples.utils;
+
+		utils.srand(110);
+
+		function colorize(opaque, context) {
+			var value = context.dataset.data[context.dataIndex];
+			var x = value.x / 100;
+			var y = value.y / 100;
+			var r = x < 0 && y < 0 ? 250 : x < 0 ? 150 : y < 0 ? 50 : 0;
+			var g = x < 0 && y < 0 ? 0 : x < 0 ? 50 : y < 0 ? 150 : 250;
+			var b = x < 0 && y < 0 ? 0 : x > 0 && y > 0 ? 250 : 150;
+			var a = opaque ? 1 : 0.5 * value.v / 1000;
+
+			return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+		}
+
+		function generateData() {
+			var data = [];
+			var i;
+
+			for (i = 0; i < DATA_COUNT; ++i) {
+				data.push({
+					x: utils.rand(MIN_XY, MAX_XY),
+					y: utils.rand(MIN_XY, MAX_XY),
+					v: utils.rand(0, 1000)
+				});
+			}
+
+			return data;
+		}
+
+		var data = {
+			datasets: [{
+				data: generateData()
+			}, {
+				data: generateData()
+			}]
+		};
+
+		var options = {
+			aspectRatio: 1,
+			legend: false,
+			tooltips: false,
+
+			elements: {
+				point: {
+					backgroundColor: colorize.bind(null, false),
+
+					borderColor: colorize.bind(null, true),
+
+					borderWidth: function(context) {
+						return Math.min(Math.max(1, context.datasetIndex + 1), 8);
+					},
+
+					hoverBackgroundColor: 'transparent',
+
+					hoverBorderColor: function(context) {
+						return utils.color(context.datasetIndex);
+					},
+
+					hoverBorderWidth: function(context) {
+						var value = context.dataset.data[context.dataIndex];
+						return Math.round(8 * value.v / 1000);
+					},
+
+					radius: function(context) {
+						var value = context.dataset.data[context.dataIndex];
+						var size = context.chart.width;
+						var base = Math.abs(value.v) / 1000;
+						return (size / 24) * base;
+					}
+				}
+			}
+		};
+
+		var chart = new Chart('chart-0', {
+			type: 'bubble',
+			data: data,
+			options: options
+		});
+
+		function randomize() {
+			chart.data.datasets.forEach(function(dataset) {
+				dataset.data = generateData()
+			});
+			chart.update();
+		}
+
+		function addDataset() {
+			chart.data.datasets.push({
+				data: generateData()
+			});
+			chart.update();
+		}
+
+		function removeDataset() {
+			chart.data.datasets.shift();
+			chart.update();
+		}
+    </script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -28,6 +28,10 @@ def index():
     
     return render_template('index.html')
 
+@app.route("/about", methods=['GET'])
+def about():
+    return render_template('about.html')
+
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -41,12 +45,38 @@ def signup():
         if len(students) != 0:
             return "Bad request"
         else:
-            print('well we got here')
             return redirect(url_for("index"))
 
-
-
     return render_template('signup.html')
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+# @appl.route("login", methods=['GET', "POST"])
+# def login():
+#     if request.method == 'POST':
+#         # LOGIN
+#         print("POST")
+#     else:
+#         return render_template('login.html')
+
+@app.route('/loginprof')
+def loginprof():
+    return render_template('loginprof.html')
+
+@app.route('/data')
+def data():
+    return render_template('data.html')
+
+@app.route('/calender')
+def calender():
+    return render_template('calender.html')
+
+@app.route('/loginstudent', methods=['GET', 'POST'])
+def loginstudent():
+    if request.method == 'POST':
+        return redirect(url_for('data'))
+    return render_template('loginstudent.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

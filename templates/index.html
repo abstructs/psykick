@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>PSYKICK</title>
@@ -12,15 +7,14 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
 	</head>
 	<body>
-			{{ url_for('static', filename='main.css') }}
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo"><strong>MLH</strong> by group</a>
+					<a href="index.html" class="logo"><strong>PSYKICK</strong></a>
 					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="generic.html">About</a>
-						<a href="elements.html">Contact</a>
+						<a href="/">Home</a>
+						<a href="/about">About</a>
+						<!-- <a href="/contact">Contact</a> -->
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
@@ -34,18 +28,16 @@
 					</header>
 
 					<div class="flex ">
-
-
 						<div>
 							<span class="icon fa-bug"></span>
-							<h3>Login</h3>
+							<h3>Get Motivated, Get Commited</h3>
 						</div>
 
 					</div>
 
 					<footer>
-						<a href="#" class="button">Login Student</a>
-						<a href="#" class="button">Login prof</a>
+						<a href="/loginstudent" class="button">Login Student</a>
+						<a href="/loginprof" class="button">Login prof</a>
 					</footer>
 				</div>
 				<div>
@@ -59,25 +51,25 @@
 				<div class="inner">
 					<div class="flex flex-2">
 						<article>
-							<div class="image round">
-								<img src="images/pic01.jpg" alt="Pic 01" />
-							</div>
+							<!-- <div class="image round"> -->
+								<!-- <img src="images/pic01.jpg" alt="Pic 01" /> -->
+							<!-- </div> -->
 							<header>
-								<h3>Lorem ipsum<br /> dolor amet nullam</h3>
+								<h3>Psykick<br /> is power.</h3>
 							</header>
-							<p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
+							<p>Worry less<br /><br/>you're in good hands.</p>
 							<footer>
 								<a href="#" class="button">Learn More</a>
 							</footer>
 						</article>
 						<article>
-							<div class="image round">
+							<!-- <div class="image round">
 								<img src="images/pic02.jpg" alt="Pic 02" />
-							</div>
+							</div> -->
 							<header>
-								<h3>Sed feugiat<br /> tempus adipicsing</h3>
+								<h3>Feel the change<br /> track your moods.</h3>
 							</header>
-							<p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
+							<p>Grow with psykick.<br>Our algorithms learn what your <br>mood patterns are to help you better.</p>
 							<footer>
 								<a href="#" class="button">Learn More</a>
 							</footer>
@@ -87,7 +79,7 @@
 			</section>
 
 		<!-- Footer -->
-			<footer id="footer">
+			<!-- <footer id="footer">
 				<div class="inner">
 
 					<h3>Get in touch</h3>
@@ -119,10 +111,10 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 	</body>
 </html>

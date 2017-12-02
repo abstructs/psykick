@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>PSYKICK</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+</head>
+<body class="subpage">
+    <header id="header">
+        <div class="inner">
+            <a href="/" class="logo"><strong>PSYKICK</strong></a>
+            <nav id="nav">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/loginstudent">Student Login</a>
+                <a href="/loginprof">Professional Login</a>
+                <!-- <a href="/contact">Contact</a> -->
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+    <section id="form" style="margin-top: 50px;">
+        <div class="inner">
+
+            <h2 style="text-align: center;"><strong>Professional Login</strong></h2>
+
+            <form method="POST" style="margin: 0 200">
+
+                <div class="field full">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" placeholder="Name">
+                </div>
+                <div class="field full">
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" placeholder="Email">
+                </div>
+                <div class="field full">
+                    <label for="email">Password</label>
+                    <input name="email" id="email" type="password" placeholder="Email">
+                </div>
+                <ul class="actions">
+                    <li><input value="Login" class="" type="submit"></li>
+                </ul>
+            </form>
+
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
