@@ -42,13 +42,13 @@ def signup():
             return "Bad request"
         else:
             print('well we got here')
-            redirect(url_for("index"))
+            return redirect(url_for("index"))
 
 
 
     return render_template('signup.html')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
 
 
